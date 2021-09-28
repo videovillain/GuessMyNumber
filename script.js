@@ -99,14 +99,16 @@ const focusInput = () => {
 };
 
 const setBetween = () => {
+  const currentMaxNum = maxNum;
   maxNum = 0;
   while (!maxNum) {
     maxNum = prompt('Select a maximum number:');
     if (maxNum === null) {
-      maxNum = gameInit.maxNum;
+      maxNum = currentMaxNum;
       return;
     }
   }
+  labelBetween.textContent = `(From 1 to ${maxNum})`;
   setSecretNumber(Number(maxNum));
   reset();
   highScore = 0;
